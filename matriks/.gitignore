@@ -1,0 +1,13 @@
+# Abaikan file log
+*.log
+
+# Abaikan file cache dan file sementara
+__pycache__/
+*.tmp
+
+# Abaikan datasets besar (jika tidak ingin dilacak)
+data/
+
+# Abaikan file yang dibuat oleh IDE (misalnya, Visual Studio Code)
+.vscode/
+
