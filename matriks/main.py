@@ -6,6 +6,8 @@ from matriks.operations.transpose import transpose
 from matriks.operations.inverse import inverse
 from matriks.statistic.correlation import mean, correlation, correlation_matrix
 from matriks.statistic.regression import regresi_linier, prediksi, evaluasi
+from matriks.statistic.correlation_visualization import plot_correlation_matrix
+from matriks.statistic.regression_visualization import plot_regresi
 from matriks.utilities import print_matrix
 from matriks.exporters.csv_exporter import export_to_csv
 from matriks.exporters.json_exporter import export_to_json
@@ -114,6 +116,7 @@ if __name__ == "__main__":
                 print("     " + "  ".join(f"{h[:6]:>8}" for h in header))
                 for i, row in enumerate(corr_mat.data):
                     print(f"{header[i][:6]:>6} " + "  ".join(f"{val:8.3f}" for val in row))
+                    plot_correlation_matrix(corr_mat, header)
 
         elif pilihan == "6":
             print("\n=== Regresi Linier (OLS) ===")
@@ -137,6 +140,7 @@ if __name__ == "__main__":
                 print("  SSE =", hasil_eval["SSE"])
                 print("  MSE =", hasil_eval["MSE"])
                 print("  R²  =", hasil_eval["R2"])
+                plot_regresi(X, y, beta, judul="Hubungan antara X dan Y (Regresi Linier)")
 
         elif pilihan == "7":
             if matriks_aktif:
